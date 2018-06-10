@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <title>Save as PDF</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="container bg-light py-2">
     <div class="row">
       <div class="col-md-12">
@@ -28,6 +28,36 @@
     </div>
   </div>
   <div class="container py-2" id="save-pdf">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark Jacob</td>
+                <td>123 456 789</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Otto Thornton</td>
+                <td>987 654 321</td>
+                <td>@fat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12">
         <h2 class="border-top border-secondary mt-5">Attachments:</h2>
@@ -48,26 +78,25 @@
       </div>
     </div>
   </div>
-  
+
   <script>
     var saveBtn = document.getElementById('saveBtn');
     var saveArea = document.getElementById('save-pdf');
-    
-    saveBtn.addEventListener('click', function(){
-      var pdf = new jsPDF('p','mm','a4');
-      
+
+    saveBtn.addEventListener('click', function() {
+      var pdf = new jsPDF('p', 'mm', 'a4');
+
       var options = {
         pagesplit: true,
         background: '#FFFFFF',
         width: saveArea.offsetWidth,
         height: saveArea.offsetHeight
       };
-      
+
       pdf.addHTML(saveArea, options, function() {
-          pdf.save('TestPdf.pdf');
+        pdf.save('TestPdf.pdf');
       });
     });
-  
   </script>
 </body>
 
